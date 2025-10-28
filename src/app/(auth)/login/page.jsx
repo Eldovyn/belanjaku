@@ -19,7 +19,7 @@ const LoginPage = () => {
                         <Input type="password" id="password" placeholder="Enter your password" />
                     </div>
                     <Button type="submit">Login</Button>
-                    <p className="text-right text-[12px] -mt-3 cursor-pointer">{`Don't have an account? `}<a href="/register" className="text-blue-500 hover:underline">Register now</a></p>
+                    <p className="text-right text-[12px] -mt-3 cursor-pointer">{`Don't have an account? `}<a href="/register" className="text-blue-500 hover:underline">Register</a></p>
                 </form>
             </div>
         </>
