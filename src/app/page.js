@@ -2,64 +2,56 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <div className="navbar bg-base-100 shadow-sm">
+        <div className="flex-1">
+          <a className="text-xl">Belanjaku</a>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="flex-none">
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+              <div className="indicator">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /> </svg>
+                <span className="badge badge-sm indicator-item">8</span>
+              </div>
+            </div>
+            <div
+              tabIndex={0}
+              className="card card-compact dropdown-content bg-base-100 z-1 mt-3 w-52 shadow">
+              <div className="card-body">
+                <span className="text-lg font-bold">8 Items</span>
+                <span className="text-info">Subtotal: $999</span>
+                <div className="card-actions">
+                  <button className="btn btn-primary btn-block">View cart</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <Image
+                  height={10}
+                  width={10}
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+              </div>
+            </div>
+            <ul
+              tabIndex="-1"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li><a>Settings</a></li>
+              <li><a>Logout</a></li>
+            </ul>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
 }
