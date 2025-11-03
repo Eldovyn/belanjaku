@@ -1,4 +1,3 @@
-// models/user.cjs
 const mongoose = require('mongoose');
 const { Schema, model, models } = mongoose;
 
