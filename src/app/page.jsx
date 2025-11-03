@@ -3,7 +3,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
 export default function Home() {
   return (
     <>
-      <nav class="navbar bg-base-100 shadow-sm">
+      <nav class="navbar bg-base-100 shadow-sm sticky top-0 z-50">
         <div class="navbar-start">
           <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -18,7 +18,7 @@ export default function Home() {
               <li><a>Produk Kursi</a></li>
             </ul>
           </div>
-          <a class="btn btn-ghost text-xl">daisyUI</a>
+          <a class="btn btn-ghost text-xl">Belanjaku</a>
         </div>
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1">
@@ -35,6 +35,26 @@ export default function Home() {
           </Avatar>
         </div>
       </nav>
+      <section
+        className="banner w-full min-h-dvh
+             bg-[url('/banner/background-banner.jpg')]
+             bg-cover bg-center bg-no-repeat
+             flex flex-col items-center justify-center gap-2"
+      >
+        <h1 className="text-white text-7xl font-bold">Belanjaku</h1>
+        <h1 className="text-white text-7xl font-bold">Koleksi</h1>
+        <h1 className="text-white text-7xl font-bold">Perlengkapan Kantor</h1>
+
+        <div className="flex items-center justify-center text-white font-semibold gap-5">
+          <p>Monitor</p>
+          <p>•</p>
+          <p>Laptop</p>
+          <p>•</p>
+          <p>Meja</p>
+          <p>•</p>
+          <p>Kursi</p>
+        </div>
+      </section>
     </>
   );
 }
