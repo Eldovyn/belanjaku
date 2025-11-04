@@ -102,6 +102,66 @@ export default function Home() {
     }
   ];
 
+  const laptops = [
+    {
+      judul: "Laptop 14\" Ultrabook Ringkas",
+      deskripsi: "Bobot <1.3kg, baterai tahan lama; cocok untuk kerja mobile & meeting.",
+      harga: 11250000,
+      stock: 18,
+      image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Laptop 15\" Produktivitas",
+      deskripsi: "Layar 15.6\" FHD, keyboard nyaman, ideal untuk spreadsheet & multitasking.",
+      harga: 9750000,
+      stock: 24,
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Laptop 13\" 2-in-1 Touch",
+      deskripsi: "Layar sentuh lipat 360°, stylus-ready; pas untuk catatan & presentasi.",
+      harga: 13250000,
+      stock: 14,
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Laptop 16\" Kreator QHD",
+      deskripsi: "Panel QHD akurat warna, CPU kencang; rendering & editing lancar.",
+      harga: 18750000,
+      stock: 9,
+      image: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Laptop Gaming 15\" RTX",
+      deskripsi: "GPU RTX, refresh rate 144Hz; kerja siang, gaming malam tetap oke.",
+      harga: 20500000,
+      stock: 7,
+      image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Laptop 14\" Bisnis",
+      deskripsi: "Chassis kokoh, port lengkap (HDMI/Type-C), privasi & keamanan siap.",
+      harga: 12500000,
+      stock: 16,
+      image: "https://images.unsplash.com/photo-1452457750107-cd084dce177d?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Laptop 15\" Entry Hemat",
+      deskripsi: "SSD cepat, cocok untuk kerja harian: dokumen, email, browser.",
+      harga: 7250000,
+      stock: 28,
+      image: "https://images.unsplash.com/photo-1516542076529-1ea3854896e1?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Laptop 13\" Chromebook",
+      deskripsi: "Boot cepat, aman, ideal POS/kiosk & kolaborasi berbasis web.",
+      harga: 4950000,
+      stock: 20,
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1477&auto=format&fit=crop"
+    }
+  ];
+
+
   return (
     <>
       <nav className="navbar bg-base-100 shadow-sm sticky top-0 z-50">
@@ -160,6 +220,11 @@ export default function Home() {
       <section className="produk-monitor ps-25 pt-10 pe-25" id="produk-monitor">
         <h2 className="text-3xl font-bold pb-5">Produk Monitor</h2>
         <MonitorRow monitors={monitors} />
+      </section>
+
+      <section className="produk-laptop ps-25 pt-10 pe-25" id="produk-monitor">
+        <h2 className="text-3xl font-bold pb-5">Produk Laptop</h2>
+        <MonitorRow monitors={laptops} />
       </section>
     </>
   );
