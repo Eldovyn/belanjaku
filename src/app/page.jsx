@@ -221,6 +221,65 @@ export default function Home() {
   ];
 
 
+  const kursi = [
+    {
+      judul: "Kursi Ergonomis Mesh",
+      deskripsi: "Sandaran mesh, lumbar support, armrest 3D; nyaman dipakai lama.",
+      harga: 1450000,
+      stock: 20,
+      image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Kursi Executive Leather",
+      deskripsi: "Bantalan tebal, tilt lock, tampilan profesional untuk kantor.",
+      harga: 2350000,
+      stock: 8,
+      image: "https://images.unsplash.com/photo-1555041469-8699ae1f6c1b?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Task Chair Basic",
+      deskripsi: "Tinggi hidrolik, roda halus; pas untuk workstation harian.",
+      harga: 650000,
+      stock: 35,
+      image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Bangku Stool Bar",
+      deskripsi: "Ringkas tanpa sandaran; cocok untuk area pantry/collab.",
+      harga: 350000,
+      stock: 28,
+      image: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Kursi Gaming Support",
+      deskripsi: "Headrest + lumbar pillow, recline; kerja & gaming nyaman.",
+      harga: 1950000,
+      stock: 11,
+      image: "https://images.unsplash.com/photo-1591405351634-c0d7b94a3f9a?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Kursi Tamu/Visitor",
+      deskripsi: "Rangka metal kokoh, bantalan empuk; cocok untuk ruang tamu kantor.",
+      harga: 520000,
+      stock: 26,
+      image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Kursi Drafting Tinggi",
+      deskripsi: "Footring, cocok untuk meja tinggi/standing desk, penyesuaian mudah.",
+      harga: 1150000,
+      stock: 9,
+      image: "https://images.unsplash.com/photo-1555041469-0f0b31a1a3d5?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Kursi Rapat Stackable",
+      deskripsi: "Ringan, bisa ditumpuk; efisien untuk ruang meeting & event.",
+      harga: 480000,
+      stock: 40,
+      image: "https://images.unsplash.com/photo-1525695230005-efd074980869?q=80&w=1477&auto=format&fit=crop"
+    }
+  ];
+
 
   return (
     <>
@@ -291,6 +350,12 @@ export default function Home() {
         <h2 className="text-3xl font-bold pb-5">Produk Meja</h2>
         <MonitorRow monitors={meja} />
       </section>
+
+      <section className="produk-laptop ps-25 pt-10 pe-25" id="produk-monitor">
+        <h2 className="text-3xl font-bold pb-5">Produk Kursi</h2>
+        <MonitorRow monitors={kursi} />
+      </section>
+      <br />
     </>
   );
 }
