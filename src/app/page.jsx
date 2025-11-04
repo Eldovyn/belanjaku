@@ -161,6 +161,66 @@ export default function Home() {
     }
   ];
 
+  const meja = [
+    {
+      judul: "Meja Kerja 120cm Minimalis",
+      deskripsi: "Top MDF + rangka besi, kabel rapi, cocok untuk setup 1 monitor.",
+      harga: 1250000,
+      stock: 18,
+      image: "https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Meja L-Shape 140×120",
+      deskripsi: "Area luas untuk multitasking; sudut L efisien untuk pojok ruangan.",
+      harga: 2850000,
+      stock: 10,
+      image: "https://images.unsplash.com/photo-1545239351-ef35f43d514b?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Standing Desk Elektrik",
+      deskripsi: "Naik-turun otomatis, preset tinggi, kerja lebih ergonomis.",
+      harga: 3950000,
+      stock: 7,
+      image: "https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Meja Kompak 100cm",
+      deskripsi: "Jejak kecil untuk ruang terbatas; rak kecil untuk dokumen.",
+      harga: 950000,
+      stock: 22,
+      image: "https://images.unsplash.com/photo-1449247709967-d4461a6a6103?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Meja Executive Kayu Solid",
+      deskripsi: "Finishing walnut, laci kunci, tampilan premium untuk ruang kerja.",
+      harga: 4750000,
+      stock: 5,
+      image: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Meja Lipat Serbaguna",
+      deskripsi: "Ringan & mudah disimpan; cocok untuk event/kelas dadakan.",
+      harga: 650000,
+      stock: 30,
+      image: "https://images.unsplash.com/photo-1582582621959-c25e60a1f335?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Meja Rapat 6–8 Orang",
+      deskripsi: "Permukaan luas, ducting kabel tengah untuk konferensi rapi.",
+      harga: 3200000,
+      stock: 6,
+      image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1477&auto=format&fit=crop"
+    },
+    {
+      judul: "Meja Sudut Modular",
+      deskripsi: "Modul kiri/kanan bisa ditukar; ideal untuk dual monitor.",
+      harga: 1750000,
+      stock: 12,
+      image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1477&auto=format&fit=crop"
+    }
+  ];
+
+
 
   return (
     <>
@@ -225,6 +285,11 @@ export default function Home() {
       <section className="produk-laptop ps-25 pt-10 pe-25" id="produk-monitor">
         <h2 className="text-3xl font-bold pb-5">Produk Laptop</h2>
         <MonitorRow monitors={laptops} />
+      </section>
+
+      <section className="produk-laptop ps-25 pt-10 pe-25" id="produk-monitor">
+        <h2 className="text-3xl font-bold pb-5">Produk Meja</h2>
+        <MonitorRow monitors={meja} />
       </section>
     </>
   );
