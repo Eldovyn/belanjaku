@@ -293,7 +293,7 @@ export default function Home() {
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
               <li><Link href="#produk-monitor">Produk Monitor</Link></li>
-              <li><a>Produk Laptop</a></li>
+              <li><Link href="#produk-laptop">Produk Laptop</Link></li>
               <li><a>Produk Meja</a></li>
               <li><a>Produk Kursi</a></li>
             </ul>
@@ -303,9 +303,9 @@ export default function Home() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li><Link href="#produk-monitor">Produk Monitor</Link></li>
-            <li><a>Produk Laptop</a></li>
-            <li><a>Produk Meja</a></li>
-            <li><a>Produk Kursi</a></li>
+            <li><Link href="#produk-laptop">Produk Laptop</Link></li>
+            <li><Link href="#produk-meja">Produk Meja</Link></li>
+            <li><Link href="#produk-kursi">Produk Kursi</Link></li>
           </ul>
         </div>
         <div className="navbar-end">
@@ -341,17 +341,17 @@ export default function Home() {
         <MonitorRow monitors={monitors} />
       </section>
 
-      <section className="produk-laptop ps-25 pt-10 pe-25" id="produk-monitor">
+      <section className="produk-laptop ps-25 pt-10 pe-25" id="produk-laptop">
         <h2 className="text-3xl font-bold pb-5">Produk Laptop</h2>
         <MonitorRow monitors={laptops} />
       </section>
 
-      <section className="produk-laptop ps-25 pt-10 pe-25" id="produk-monitor">
+      <section className="produk-meja ps-25 pt-10 pe-25" id="produk-meja">
         <h2 className="text-3xl font-bold pb-5">Produk Meja</h2>
         <MonitorRow monitors={meja} />
       </section>
 
-      <section className="produk-laptop ps-25 pt-10 pe-25" id="produk-monitor">
+      <section className="produk-kursi ps-25 pt-10 pe-25" id="produk-kursi">
         <h2 className="text-3xl font-bold pb-5">Produk Kursi</h2>
         <MonitorRow monitors={kursi} />
       </section>
