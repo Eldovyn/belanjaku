@@ -2,6 +2,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@radix-ui/react-avatar";
 import Image from "next/image";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ScrollBar } from "@/components/ui/scroll-area";
+import Link from "next/link";
 
 const formatIDR = n => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(n);
 
@@ -112,7 +113,7 @@ export default function Home() {
             <ul
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              <li><a>Produk Monitor</a></li>
+              <li><Link href="#produk-monitor">Produk Monitor</Link></li>
               <li><a>Produk Laptop</a></li>
               <li><a>Produk Meja</a></li>
               <li><a>Produk Kursi</a></li>
@@ -122,7 +123,7 @@ export default function Home() {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><a>Produk Monitor</a></li>
+            <li><Link href="#produk-monitor">Produk Monitor</Link></li>
             <li><a>Produk Laptop</a></li>
             <li><a>Produk Meja</a></li>
             <li><a>Produk Kursi</a></li>
@@ -156,7 +157,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="produk-monitor ps-25 pt-10 pe-25">
+      <section className="produk-monitor ps-25 pt-10 pe-25" id="produk-monitor">
         <h2 className="text-3xl font-bold pb-5">Produk Monitor</h2>
         <MonitorRow monitors={monitors} />
       </section>
