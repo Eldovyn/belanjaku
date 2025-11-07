@@ -61,3 +61,35 @@ export async function POST(req) {
         return NextResponse.json({ message: error.message }, { status: 400 });
     }
 }
+
+export async function GET(req) {
+    try {
+        await connectDB();
+
+        const authHeader = req.headers.get("authorization") || req.headers.get("Authorization") || "";
+
+        const match = authHeader.match(/^Bearer\s+(.+)$/i);
+        if (!match) {
+            return NextResponse.json({ message: "invalid token" }, { status: 401 });
+        }
+        const token = match[1];
+
+        const payload = await verifyToken(token)
+        if (!payload) return NextResponse.json({ message: "invalid token" }, { status: 401 });
+
+        const user = await User.findById(payload.id);
+        if (!user) {
+            return NextResponse.json({ message: "invalid token" }, { status: 401 });
+        }
+
+        const chartResult = await Chart.find({ user: user._id });
+
+        return NextResponse.json({
+            message: "successfully get chart",
+            data: chartResult,
+        });
+    } catch (error) {
+        console.error(error)
+        return NextResponse.json({ message: error.message }, { status: 400 });
+    }
+}
