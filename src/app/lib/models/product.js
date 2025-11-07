@@ -30,6 +30,10 @@ const ProductSchema = new Schema(
             type: Number,
             required: true,
         },
+        stock: {
+            type: Number,
+            required: true,
+        },
         productType: {
             type: String,
             enum: Object.values(ProductType),
