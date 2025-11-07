@@ -15,7 +15,7 @@ function MonitorCard({ item }) {
       <div className="relative aspect-video overflow-hidden">
         <Image src={item?.imageUrl} alt={item?.title} width={400} height={400} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
         <span className="absolute left-3 top-3 inline-flex items-center rounded-full border bg-white/80 px-2.5 py-0.5 text-xs font-medium backdrop-blur">
-          Stok: {item.stock}
+          Stok: {item?.stock}
         </span>
       </div>
       <div className="space-y-3 p-4">
@@ -51,8 +51,6 @@ export default function Home() {
   const { data: dataLaptop } = useGetProduct(accessToken, "laptop");
   const { data: dataMeja } = useGetProduct(accessToken, "meja");
   const { data: dataKursi } = useGetProduct(accessToken, "kursi");
-
-  console.log(dataMonitor?.data)
 
 
   return (
