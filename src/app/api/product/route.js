@@ -49,3 +49,40 @@ export async function POST(req) {
         return NextResponse.json({ message: error.message }, { status: 400 });
     }
 }
+
+export async function GET(req) {
+    try {
+        await connectDB();
+
+        const authHeader = req.headers.get("authorization") || req.headers.get("Authorization") || "";
+
+        const match = authHeader.match(/^Bearer\s+(.+)$/i);
+        if (!match) {
+            return NextResponse.json({ message: "invalid token" }, { status: 401 });
+        }
+        const token = match[1];
+
+        const payload = await verifyToken(token)
+        if (!payload) return NextResponse.json({ message: "invalid token" }, { status: 401 });
+
+        const user = await User.findById(payload.id);
+        if (!user) {
+            return NextResponse.json({ message: "invalid token" }, { status: 401 });
+        }
+
+        const { searchParams } = new URL(req.url);
+
+        const productType = searchParams.get("productType");
+
+        const products = await Product.find({ productType });
+
+        return NextResponse.json({
+            message: "successfully get products",
+            data: products,
+        });
+    } catch (error) {
+        console.error(error)
+        return NextResponse.json({ message: error.message }, { status: 400 });
+    }
+}
+
