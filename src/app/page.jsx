@@ -24,7 +24,7 @@ function MonitorCard({ item }) {
         <div className="flex items-center justify-between pt-1">
           <div className="text-base font-bold">{formatIDR(item?.price)}</div>
           <button className="rounded-xl border px-3 py-2 text-sm font-medium transition hover:bg-gray-50 active:scale-[0.99]">
-            Tambah ke Keranjang
+            Buy
           </button>
         </div>
       </div>
