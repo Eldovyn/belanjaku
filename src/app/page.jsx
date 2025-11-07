@@ -6,10 +6,85 @@ import { ScrollBar } from "@/components/ui/scroll-area";
 import Link from "next/link";
 import { useGetProduct } from "@/services/product/get-product";
 import Cookies from "js-cookie";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Separator } from "@/components/ui/separator";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { axiosInstance } from "@/lib/axiosInstance";
+import { Spinner } from "@/components/ui/spinner"
+import { toast } from "sonner"
 
 const formatIDR = n => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(n);
 
 function MonitorCard({ item }) {
+  const [open, setOpen] = useState(false)
+  const [qrisUrl, setQrisUrl] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [orderId, setOrderId] = useState('')
+  const [loadingQris, setLoadingQris] = useState(false)
+
+  const checkQris = async () => {
+    console.log(item?._id)
+    setLoadingQris(true)
+    const accessToken = Cookies.get("accessToken") || "";
+
+    try {
+      const response = await axiosInstance.get(
+        `/qris/purchase?product_id=${item?._id}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        },
+      );
+
+      if (response.status === 200) {
+        if (response.data.data.status === 'settlement') {
+          setOpen(false)
+          toast.success("Pembayaran berhasil")
+        }
+      }
+    } catch (err) {
+      console.log(err.response?.status, err.message);
+    }
+    setLoadingQris(false)
+  }
+
+  const apiQris = async () => {
+    setLoading(true)
+    const accessToken = Cookies.get("accessToken") || "";
+
+    try {
+      const response = await axiosInstance.post(
+        "/qris/purchase",
+        { product_id: item?._id, amount: 1 },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      if (response.status === 201) {
+        setQrisUrl(response.data.data.qris_url);
+        setOrderId(response.data.data.order_id);
+      }
+    } catch (err) {
+      console.log(err.response?.status, err.message);
+    }
+    setLoading(false)
+  };
+
+
   return (
     <div className="group overflow-hidden rounded-2xl border bg-white shadow-sm transition hover:shadow-md w-100">
       <div className="relative aspect-video overflow-hidden">
@@ -23,9 +98,26 @@ function MonitorCard({ item }) {
         <p className="line-clamp-2 text-sm text-gray-600 min-h-10">{item?.description}</p>
         <div className="flex items-center justify-between pt-1">
           <div className="text-base font-bold">{formatIDR(item?.price)}</div>
-          <button className="rounded-xl border px-3 py-2 text-sm font-medium transition hover:bg-gray-50 active:scale-[0.99]">
-            Buy Product
-          </button>
+          <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild >
+              <Button onClick={() => { setOpen(true); apiQris() }} className="rounded-xl border px-3 py-2 text-sm font-medium transition hover:bg-gray-50 bg-gray-50 text-black active:scale-[0.99]">Buy Product</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>{`Buy product`}</DialogTitle>
+                <DialogDescription>
+                  {item?.description}
+                </DialogDescription>
+              </DialogHeader>
+              <Separator />
+              {loading === true ? <Spinner className="mx-auto size-10 mt-5 mb-5" /> : <Image src={qrisUrl} alt={item?.title} width={400} height={400} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />}
+              <div className="flex justify-between items-center">
+                <p>{formatIDR(item?.price)}</p>
+                <p className="text-sm text-gray-600">{orderId}</p>
+              </div>
+              <Button className="mt-2 bg-blue-500 hover:bg-blue-600" onClick={checkQris}>Check Status</Button>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </div>
