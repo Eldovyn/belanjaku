@@ -27,10 +27,10 @@ export async function POST(req) {
             return NextResponse.json({ message: "unauthorize" }, { status: 401 });
         }
 
-        const { title, description, imageUrl, price, productType } = await req.json();
+        const { title, description, imageUrl, price, productType, stock } = await req.json();
 
         const productResult = await Product.create({
-            title, description, imageUrl, price, productType
+            title, description, imageUrl, price, stock, productType
         });
 
         return NextResponse.json({
