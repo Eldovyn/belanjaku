@@ -1,7 +1,7 @@
 import requests
 
 URL_API = "http://localhost:3000/api/product"
-TOKEN_ADMIN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGRhZWU0MTA4NTFjNTVmYzQ1Y2I4NyJ9.IW9UK_l2EC1NZUz1M28g18cV3OkNOePRAdpoXc_IOYc"
+TOKEN_ADMIN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGRiZmQxNmUzM2I0NjAwYTcyZjYwNCJ9.u6LA8aX7-9UVNFX4yDHfRWBluA_tKvL7XqrIy3_XDc4"
 
 headers = {"Authorization": f"Bearer {TOKEN_ADMIN}", "Content-Type": "application/json"}
 products = [
