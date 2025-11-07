@@ -1,7 +1,7 @@
 import { compare } from "bcryptjs";
 import User from "@/app/lib/models/user";
 import { NextResponse } from "next/server";
-import { connectDB } from "@/lib/mongodb";
+import { connectDB } from "@/app/lib/mongodb";
 import { generateToken } from "@/app/lib/jwt";
 import validator from "validator";
 
